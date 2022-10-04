@@ -139,7 +139,7 @@ function! vsnip#get_context() abort
         if strcharpart(l:before_text, l:before_text_len - l:prefix_len, l:prefix_len) !=# l:prefix
           continue
         endif
-        if l:prefix =~# '^\h' && l:before_text !~# '\<\V' . escape(l:prefix, '\/?') . '\m$'
+        if l:prefix =~# '^\h' && l:before_text !~# '\V' . escape(l:prefix, '\/?') . '\m$'
           continue
         endif
         return s:create_context(l:snippet, l:before_text_len, l:prefix_len)
@@ -155,7 +155,7 @@ function! vsnip#get_context() abort
         if strcharpart(l:before_text, l:before_text_len - l:prefix_len, l:prefix_len) !=# l:prefix
           continue
         endif
-        if l:prefix =~# '^\h' && l:before_text !~# '\<\V' . escape(l:prefix, '\/?') . '\m$'
+        if l:prefix =~# '^\h' && l:before_text !~# '\V' . escape(l:prefix, '\/?') . '\m$'
           continue
         endif
         return s:create_context(l:snippet, l:before_text_len, l:prefix_len)
