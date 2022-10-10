@@ -50,6 +50,7 @@ endfunction
 function! vsnip#expand() abort
   let l:context = vsnip#get_context()
   if !empty(l:context)
+    let &undolevels = &undolevels
     call s:TextEdit.apply(bufnr('%'), [{
     \   'range': l:context.range,
     \   'newText': ''

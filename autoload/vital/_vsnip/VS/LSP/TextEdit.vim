@@ -27,6 +27,14 @@ endfunction
 "
 " apply
 "
+if has('nvim-0.5')
+  function! s:apply(path, text_edits) abort
+    call luaeval('vim.lsp.util.apply_text_edits(_A[1], _A[2], "utf-8")', [a:text_edits, a:path])
+  endfunction
+
+  finish
+endif
+
 function! s:apply(path, text_edits) abort
   let l:current_bufname = bufname('%')
   let l:current_position = s:Position.cursor()
