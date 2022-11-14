@@ -29,7 +29,7 @@ endfunction
 "
 if has('nvim-0.5')
   function! s:apply(path, text_edits) abort
-    call luaeval('vim.lsp.util.apply_text_edits(_A[1], _A[2], "utf-8")', [a:text_edits, a:path])
+    call luaeval('vim.lsp.util.apply_text_edits(_A[1], _A[2], "utf-32")', [a:text_edits, a:path])
   endfunction
 
   finish
